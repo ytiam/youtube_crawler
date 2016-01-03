@@ -4,7 +4,7 @@ def youtube_crawler(search_term):
     from apiclient.discovery import build #pip install google-api-python-client
     from apiclient.errors import HttpError #pip install google-api-python-client
     from oauth2client.tools import argparser #pip install oauth2client
-    import pandas as pd #pip install pandas
+    import pandas as pd
     import argparse
     
     
@@ -15,9 +15,8 @@ def youtube_crawler(search_term):
     
     parser = argparse.ArgumentParser()
     parser.add_argument("--q", help="Search term", default=search_term)
-    #change the default to the search term you want to search
     parser.add_argument("--max-results", help="Max results", default=50)
-    #default number of results which are returned. It can vary from 0 - 100
+    #default number of results which are returned. Google free api has max limit as 50
     args = parser.parse_args()
     options = args
     
@@ -41,10 +40,9 @@ def youtube_crawler(search_term):
      # Filter out channels, and playlists.
     for search_result in search_response.get("items", []):
         if search_result["id"]["kind"] == "youtube#video":
-            #videos.append("%s" % (search_result["id"]["videoId"]))
             videos[search_result["id"]["videoId"]] = search_result["snippet"]["title"]
      
-     #print "Videos:\n", "\n".join(videos), "\n"
+     
      
      
     s = ','.join(videos.keys())
