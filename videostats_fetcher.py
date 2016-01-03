@@ -9,7 +9,7 @@ def youtube_crawler(search_term):
     
     
     
-    DEVELOPER_KEY = "AIzaSyA-4NTXXwsiSgTCmMrqxTVq9wjyuWvt37k"#youtube_api
+    DEVELOPER_KEY = "your youtube_api key"
     YOUTUBE_API_SERVICE_NAME = "youtube"
     YOUTUBE_API_VERSION = "v3"
     
