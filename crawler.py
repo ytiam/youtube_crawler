@@ -1,3 +1,6 @@
 from youtube import youtube
 
-output=youtube('your search query') #like youtube('pink floyd high hopes')
+search_term = 'coldplay yellow'
+output=youtube(search_term) #like youtube('pink floyd high hopes')
+
+print(output)

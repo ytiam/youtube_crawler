@@ -1,6 +1,7 @@
 from youtubecrawlerfunctionmode import youtube_crawler
 
-import urllib, json
+import json
+import urllib.request as ur
 
 def youtube(search_term):
 
@@ -18,13 +19,13 @@ def youtube(search_term):
     
         url=("https://www.googleapis.com/youtube/v3/commentThreads?key="+DEVELOPER_KEY+"&textFormat=plainText&part=snippet&videoId="+link_id+'&maxResults='+'100').encode("ascii","ignore")
     
-        response = urllib.urlopen(url)
+        response = ur.urlopen(url.decode('ASCII'))
     
         data = json.loads(response.read())
         
         dic_com={}
         
-        if str(data.keys()[0])=="error":
+        if str(list(data.keys())[0])=="error":
             dic_com=dic_com
         else:
         
